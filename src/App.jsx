@@ -14,7 +14,8 @@ function App() {
   const [successMessage, setSuccessMessage] = useState(false);
 
   //functions
-  const handleSubmit = async() => {
+  const handleSubmit = async(e) => {
+    console.log()
     e.preventDefault();
 
     try{
@@ -43,8 +44,6 @@ function App() {
     } finally {
       setSubmitting(false);
     }
-    
-
   }
 
   const handleChange = (e) => {
@@ -59,7 +58,7 @@ function App() {
       <h1>Contact Form</h1>
 
       <form onSubmit={handleSubmit}>
-        
+
         {/* inputs */}
         <div className="half-width"> 
           <label htmlFor="firstName">First name:</label>
@@ -68,6 +67,8 @@ function App() {
             value={formData.firstName} 
             name="firstName" 
             onChange={handleChange}
+            id="firstName"
+            autoComplete="first name"
           />
           <label htmlFor="lastName">Last name</label>
           <input 
@@ -75,6 +76,8 @@ function App() {
             onChange={handleChange} 
             name="lastName" 
             value={formData.lastName}
+            id="lastName"
+            autoComplete="last name"
           />
         </div> 
         <label htmlFor="email">Email</label>
@@ -83,10 +86,10 @@ function App() {
           value={formData.email} 
           onChange={handleChange} 
           name="email"
+          id="email"
+          autoComplete="email@email.com"
         />
-        {/* checkbox */}
-        {/* radio */}
-        
+
         <button type="submit" disabled={submitting}>Submit</button>
         
         {errorMessage &&
