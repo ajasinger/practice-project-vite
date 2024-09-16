@@ -1,4 +1,5 @@
 import { useState, useEffect, Fragment } from "react";
+import styles from './TableComponent.module.css'
 
 export default function TableDisplay() {
     //state
@@ -48,24 +49,26 @@ export default function TableDisplay() {
     }
 
     return(
-        <>
+        <div className={styles.tableContainer}>
         <h1>Todos</h1>
         <button type="button" onClick={handleSort}>SORT</button>
         {/* map todos */}
+        <div className="tableContainerArea">
         {todos &&
             todos?.map(todo => (
-                <div key={todo.id}>
+                <div className="todo-item" key={todo.id}>
                     {todo.title}
-                    <button type="button" onClick={e => handleDelete(todo.id)}>x</button>
+                    <button className="todo-button" type="button" onClick={e => handleDelete(todo.id)}>x</button>
                 </div>
             ))
         }
+        </div>
         {loading &&
             <p>loading..</p>
         }
         {error &&
             <p>There was an error loading todos.</p>
         }
-        </>
+        </div>
     )
 }
