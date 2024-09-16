@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react';
 import TableDisplay from './components/tableDisplay';
 import Dropdown from './components/dropdown';
+import Accordion from './components/Accordion';
 
 function App() {
 
@@ -112,6 +113,7 @@ function App() {
       </form>
       </div>
       < Dropdown />
+      < Accordion />
       < TableDisplay />
     </>
   )
