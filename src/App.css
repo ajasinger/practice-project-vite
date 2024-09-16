@@ -38,3 +38,21 @@ button:hover {
 button:disabled {
     background-color: purple
 }
+
+.tableContainerArea {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+.todo-item {
+    display: contents; /* Make the child elements follow grid template */
+  }
+  
+  .todo-item span {
+    grid-column: 1; /* The title goes in the first column */
+  }
+  
+  .todo-item button {
+    grid-column: 2; /* The button goes in the second column */
+  }
