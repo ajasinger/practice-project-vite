@@ -1,5 +1,6 @@
 import './App.css'
 import { useState } from 'react';
+import TableDisplay from './components/tableDisplay';
 
 function App() {
 
@@ -109,7 +110,7 @@ function App() {
 
       </form>
       </div>
-        
+      < TableDisplay />
     </>
   )
 }
