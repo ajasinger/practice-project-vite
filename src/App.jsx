@@ -55,40 +55,48 @@ function App() {
 
   return (
     <>
+    <div className="form-container">
+      
       <h1>Contact Form</h1>
 
       <form onSubmit={handleSubmit}>
 
         {/* inputs */}
         <div className="half-width"> 
-          <label htmlFor="firstName">First name:</label>
-          <input 
-            type="text" 
-            value={formData.firstName} 
-            name="firstName" 
-            onChange={handleChange}
-            id="firstName"
-            autoComplete="first name"
-          />
-          <label htmlFor="lastName">Last name</label>
-          <input 
-            type="text" 
-            onChange={handleChange} 
-            name="lastName" 
-            value={formData.lastName}
-            id="lastName"
-            autoComplete="last name"
-          />
+          <div className="form-section">
+            <label htmlFor="firstName">First name</label>
+            <input 
+              type="text" 
+              value={formData.firstName} 
+              name="firstName" 
+              onChange={handleChange}
+              id="firstName"
+              autoComplete="first name"
+            />
+          </div>
+          <div className="form-section">
+            <label htmlFor="lastName">Last name</label>
+            <input 
+              type="text" 
+              onChange={handleChange} 
+              name="lastName" 
+              value={formData.lastName}
+              id="lastName"
+              autoComplete="last name"
+            />
+          </div>
         </div> 
-        <label htmlFor="email">Email</label>
-        <input 
-          type="email" 
-          value={formData.email} 
-          onChange={handleChange} 
-          name="email"
-          id="email"
-          autoComplete="email@email.com"
-        />
+        <div className="form-section">
+          <label htmlFor="email">Email</label>
+          <input 
+            type="email" 
+            value={formData.email} 
+            onChange={handleChange} 
+            name="email"
+            id="email"
+            autoComplete="email@email.com"
+          />
+        </div>
 
         <button type="submit" disabled={submitting}>Submit</button>
         
@@ -100,6 +108,7 @@ function App() {
         }
 
       </form>
+      </div>
         
     </>
   )
