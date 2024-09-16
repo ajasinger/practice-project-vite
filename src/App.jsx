@@ -11,7 +11,7 @@ function App() {
   })
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
-  const [sucessMessage, setSuccessMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
 
   //functions
   const handleSubmit = async() => {
@@ -57,7 +57,9 @@ function App() {
   return (
     <>
       <h1>Contact Form</h1>
+
       <form onSubmit={handleSubmit}>
+        
         {/* inputs */}
         <div className="half-width"> 
           <label htmlFor="firstName">First name:</label>
@@ -84,14 +86,16 @@ function App() {
         />
         {/* checkbox */}
         {/* radio */}
-        <button type="submit" disable={submitting}>Submit</button>
-        {error &&
+        
+        <button type="submit" disabled={submitting}>Submit</button>
+        
+        {errorMessage &&
           <p>There was an error submitting your info. Please try again.</p>
         }
-        {
-          success &&
+        {successMessage &&
           <p>Your info has been submitted!</p>
         }
+
       </form>
         
     </>
