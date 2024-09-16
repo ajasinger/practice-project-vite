@@ -1,0 +1,40 @@
+.form-container {
+    max-width: 500px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem
+}
+
+.half-width {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.half-width > div {
+    width: 100%;
+}
+
+button {
+    background-color: aqua;  
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+button:disabled {
+    background-color: purple
+}
