@@ -18,8 +18,6 @@ export default function TableDisplay() {
 
             const res = await fetch('https://jsonplaceholder.typicode.com/todos')
             const resData = await res.json()
-
-            console.log('resData', resData);
             setTodos(resData);
 
         } catch(error) {
