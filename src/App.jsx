@@ -101,7 +101,9 @@ function App() {
             autoComplete="email@email.com"
           />
         </div>
-
+    {/* checkbox */}
+    {/* select */}
+    {/* radio */}
         <button type="submit" disabled={submitting}>Submit</button>
         
         {errorMessage &&
