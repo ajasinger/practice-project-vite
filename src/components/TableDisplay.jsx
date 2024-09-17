@@ -72,8 +72,8 @@ export default function TableDisplay() {
 
     const handlePageClick = (e) => {
         setCurrentPage(e.target.value);
-        const sliceStart = rowsPerPg * e.target.value-1;
-        const sliceEnd = sliceStart + 10
+        const sliceStart = rowsPerPg * (e.target.value-1);
+        const sliceEnd = sliceStart + rowsPerPg
         const slicedTodos = todos.slice(sliceStart, sliceEnd);
         setTodoPage(slicedTodos);
     }
