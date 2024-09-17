@@ -11,4 +11,7 @@ export function useLocalStorage() {
         //set data in localStorage
         localStorage.setValue(str, JSON.stringify(value))
     }, [value])
+
+    //can rename this when you import it into a component
+    return [value, setValue];
 }
