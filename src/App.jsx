@@ -11,7 +11,10 @@ function App() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: ''
+    email: '', 
+    select: '',
+    radio: '',
+    checkbox: []
   })
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -51,10 +54,18 @@ function App() {
   }
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    console.log(e.target.value);
+    if(e.target.name === 'checkbox') {
+      setFormData({
+        ...formData,
+        [e.target.name]: [...formData.checkbox, e.target.value]
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    }
   }
 
   return (
@@ -101,9 +112,39 @@ function App() {
             autoComplete="email@email.com"
           />
         </div>
-    {/* checkbox */}
-    {/* select */}
-    {/* radio */}
+      {/* checkbox */}
+      <div>
+          <input type="checkbox" name="checkbox" value="checkbox1" onChange={handleChange} checked={formData.checkbox.includes('checkbox2')} />
+          <label htmlFor="checkbox1">checkbox1</label>
+        </div>
+        <div>
+          <input type="checkbox" name="checkbox" value="checkbox2" onChange={handleChange} checked={formData.checkbox.includes('checkbox2')} />
+          <label htmlFor="checkbox2">checkbox2</label>
+        </div>
+        <div>
+          <input type="checkbox" name="checkbox" value="checkbox3" onChange={handleChange} checked={formData.checkbox.includes('checkbox2')}/>
+          <label htmlFor="checkbox3">checkbox3</label>
+        </div>
+      {/* select */}
+        <select onChange={handleChange} value={formData.select} name="select">
+          <option value="option1">option 1</option>
+          <option value="option2">option 2</option>
+          <option value="option3">option 3</option>
+        </select>
+      {/* radio */}
+        <div>
+          <input type="radio" name="radio" value="radio1" onChange={handleChange} checked={formData.radio === 'radio1'} />
+          <label htmlFor="radio1">Radio1</label>
+        </div>
+        <div>
+          <input type="radio" name="radio" value="radio2" onChange={handleChange} checked={formData.radio === 'radio2'} />
+          <label htmlFor="radio2">Radio2</label>
+        </div>
+        <div>
+          <input type="radio" name="radio" value="radio3" onChange={handleChange} checked={formData.radio === 'radio3'} />
+          <label htmlFor="radio3">Radio3</label>
+        </div>
+
         <button type="submit" disabled={submitting}>Submit</button>
         
         {errorMessage &&
