@@ -3,6 +3,7 @@ import { useState } from 'react';
 import TableDisplay from './components/tableDisplay';
 import Dropdown from './components/dropdown';
 import Accordion from './components/Accordion';
+import ImageCarousel from './components/ImageCarousel';
 
 function App() {
 
@@ -115,6 +116,7 @@ function App() {
       < Dropdown />
       < Accordion />
       < TableDisplay />
+      < ImageCarousel />
     </>
   )
 }
