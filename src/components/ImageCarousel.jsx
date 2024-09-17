@@ -7,15 +7,7 @@ export default function ImageCarousel() {
     const [imagesArray, setImagesArray] = useState([]);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [carouselPosition, setCarouselPosition] = useState(null);
     const ref = useRef(null);
-
-    //FUNCTIONS 
-    //onClick for arrow to set -- setPosition() -- maybe in UI
-
-    //UI
-    //container for carousel 
-    //arrows for navigating through carousel 
 
     const postData = async() => {
 
@@ -30,7 +22,6 @@ export default function ImageCarousel() {
                 const slicePhotos = photosArray.slice(0,5);
                 console.log('slicePhotos', slicePhotos);
                 setImagesArray(slicePhotos);
-                setCarouselPosition(slicePhotos[0].id);
 
             } else {
                 console.log('error fetching photos');
@@ -59,7 +50,7 @@ export default function ImageCarousel() {
             container.scrollBy({ left: -scrollAmount, behavior: 'smooth'})
         }
 
-        if(direction === 'righ') {
+        if(direction === 'right') {
             container.scrollBy({ left: scrollAmount, behavior: 'smooth'})
         }
     }
@@ -68,13 +59,13 @@ export default function ImageCarousel() {
         <div className={styles.outerContainer}>
             <h1>Carousel</h1>
                 <div className={styles.arrowContainer}>
-                    <button className={styles.arrow}>&#8592;</button>
-                    <button className={styles.arrow}>&#8594;</button>
+                    <button className={styles.arrow} onClick={() => handleScroll('left')}>&#8592;</button>
+                    <button className={styles.arrow} onClick={() => handleScroll('right')}>&#8594;</button>
                 </div>
             <div className={styles.container} ref={ref}>
                 {imagesArray && imagesArray.length > 0 &&
                     imagesArray.map(image => (
-                        <div key={image?.id} className={carouselPosition === image?.id ? styles.focus : styles.notFocus}>
+                        <div key={image?.id}>
                             <img src={image?.url} alt={image?.title} />
                         </div>
                     ))
