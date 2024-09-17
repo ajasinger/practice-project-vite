@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './AccordionComponent.module.css';
 
 export default function Accordion() {
 
@@ -13,10 +14,15 @@ export default function Accordion() {
     ]
 
     return(
-        <>
+        <div className={styles.accordionContainer}>
             {slides &&
                 slides.map(slide => (
-                    <button key={slide.id} value={slide.id} onClick={e => setIsOpen(slide.id)}>
+                    <button 
+                        key={slide.id} 
+                        value={slide.id} 
+                        onClick={e => setIsOpen(slide.id)}
+                        className={isOpen === slide.id ? styles.open : styles.closed}
+                    >
                         {isOpen === slide.id ? (
                             <div>
                                 {slide.title}
@@ -30,6 +36,6 @@ export default function Accordion() {
                     </button>
                 ))
             }
-        </>
+        </div>
     )
 }
