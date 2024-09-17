@@ -8,17 +8,22 @@
 
 .accordionContainer button {
     height: 100%;
-    width: 100%;
     flex-grow: 1;
-    background-color: black;
-    color: white;
     border: none;
     border-radius: 10px;
     transition: width 0.3s ease;
 }
 
-.accordionContainer .closed button {
+.accordionContainer .closed {
     width: 50px;
     background-color: grey;
+    color: lightgrey;
 }
+
+.accordionContainer .open {
+    width: 100%; 
+    background-color: black;
+    color: white;
+}
+
 
