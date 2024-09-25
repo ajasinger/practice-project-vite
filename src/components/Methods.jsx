@@ -11,6 +11,20 @@
 
 import {useState} from 'react';
 
+const arrayNums = [1, 3, 6, 8, 4, 3, 2, 8, 6, 5, 6, 7, 0]
+const objName = {
+    name: "kelly",
+    school: "bss",
+    grade: "7",
+    city: "Toronto"
+}
+const arrObjNames = [
+    {name: "bri", age: "49"},
+    {name: "kat", age: "26"},
+    {name: "ben", age: "78"},
+    {name: "carrie", age: "57"},
+]
+
 export default function Methods() {
     return(
         <div>
