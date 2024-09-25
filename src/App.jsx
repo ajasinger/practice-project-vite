@@ -4,6 +4,7 @@ import TableDisplay from './components/tableDisplay';
 import Dropdown from './components/dropdown';
 import Accordion from './components/Accordion';
 import ImageCarousel from './components/ImageCarousel';
+import Form from './components/Form';
 
 function App() {
 
@@ -70,6 +71,9 @@ function App() {
 
   return (
     <>
+    <h1>FORM</h1>
+    < Form />
+
     <div className="form-container">
       
       <h1>Contact Form</h1>
