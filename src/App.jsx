@@ -5,6 +5,7 @@ import Dropdown from './components/dropdown';
 import Accordion from './components/Accordion';
 import ImageCarousel from './components/ImageCarousel';
 import Form from './components/Form';
+import Methods from './components/Methods';
 
 function App() {
 
@@ -71,6 +72,8 @@ function App() {
 
   return (
     <>
+    <h1>Methods</h1>
+    < Methods />
     <h1>FORM</h1>
     < Form />
 
