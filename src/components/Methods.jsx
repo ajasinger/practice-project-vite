@@ -25,6 +25,33 @@ const arrObjNames = [
     {name: "carrie", age: "57"},
 ]
 
+//map --> creates new array by applying a function to each element --> RETURNS new array 
+//const doubled = nums.map(num => num * 2);  // [2, 4, 6, 8]
+
+//filter --> creates new array that pass a function to each element --> RETURNS new array
+//const even = nums.filter(num => num % 2 === 0);  // [2, 4]
+
+//reduce --> executes reducer on each element --> RETURNS value (doesn't change array)
+//const sum = nums.reduce((acc, curr) => acc + curr, 0);  // 10
+
+//forEach --> executes function on each element --> RETURNS undefined
+//nums.forEach(num => console.log(num));
+
+//sort --> sorts array in place based on function --> RETURNS reference to array, now sorted
+//nums.sort((a, b) => a - b);  // [1, 1, 3, 4, 5]
+
+//some --> checks if at least one element passes function requirements --> RETURNS true/false
+//const hasEven = nums.some(num => num % 2 === 0);  // true
+
+//every --> checks if all elemente passes function requirements --> RETURNS true/false
+//const hasEven = nums.some(num => num % 2 === 0);  // true
+
+//includes --> checks if a string contains another string --> RETURNS true/false
+//const containsHello = str.includes("hello");  // true
+
+//find --> returns first element that passes requirements --> RETURNS element of array or object
+//const user = users.find(user => user.name === 'Bob');  // { name: 'Bob' }
+
 export default function Methods() {
     return(
         <div>
