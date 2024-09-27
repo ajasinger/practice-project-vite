@@ -9,6 +9,13 @@
 // You are free to add classes and styles, but make sure you leave the component ID's and classes provided as they are. 
 // Submit your code once it is complete and our system will validate your output.
 
+
+//Problem: Create a React component that renders a list of user objects. The users have the following properties: id, name, and role. Implement a search input that filters the list by name as the user types. Additionally, add a dropdown to sort the list by role in either ascending or descending order.
+//Problem: Create a React component that fetches data from an API (mock the data as a static array if needed) and implements pagination, with the ability to search for specific items in the data. Additionally, allow the user to remove items from the current page without affecting the original data source or pagination structure.
+//Build a React component that renders two dropdowns. The second dropdown’s options should depend on the selection made in the first dropdown. When the form is submitted, log the selected values to the console.
+//Create a React component that allows the user to input multiple tags (e.g., for categorizing content). Each time the user presses "Enter", the current input should be added as a tag. However, ensure that duplicate tags cannot be added. Display the list of tags below the input field, and allow users to remove tags by clicking on them.
+//Create a React component for a simple image carousel. The carousel should show one image at a time with "Next" and "Previous" buttons. Additionally, add buttons below the carousel to allow the user to jump to a specific image by clicking on a dot. The carousel should wrap around when reaching the beginning or end of the image list.
+
 import {useState} from 'react';
 
 const arrayNums = [1, 3, 6, 8, 4, 3, 2, 8, 6, 5, 6, 7, 0]
@@ -28,27 +35,11 @@ const arrObjNames = [
 //map --> creates new array by applying a function to each element --> RETURNS new array 
 //const doubled = nums.map(num => num * 2);  // [2, 4, 6, 8]
 
-const map = arrayNums.map(num => {
-    num +1
-})
-console.log('map', map)
-
 //filter --> creates new array that pass a function to each element --> RETURNS new array
 //const even = nums.filter(num => num % 2 === 0);  // [2, 4]
-const filter = arrayNums.filter(num => {
-    num % 2 === 0
-}) 
-console.log('filter', filter)
 
 //reduce --> executes reducer on each element --> RETURNS value (doesn't change array)
 //const sum = nums.reduce((acc, curr) => acc + curr, 0);  // 10
-const reduce = arrayNums.reduce((acc, curr) => {
-    acc + curr, 0
-});
-console.log('reduce', reduce)
-
-const reduceObj = arrObjNames.reduce();
-console.log('reduceObj', reduceObj)
 
 //forEach --> executes function on each element --> RETURNS undefined
 //nums.forEach(num => console.log(num));
@@ -65,8 +56,36 @@ console.log('reduceObj', reduceObj)
 //includes --> checks if a string contains another string --> RETURNS true/false
 //const containsHello = str.includes("hello");  // true
 
-//find --> returns first element that passes requirements --> RETURNS element of array or object
+//find --> finds first element that passes requirements --> RETURNS element of array or object
 //const user = users.find(user => user.name === 'Bob');  // { name: 'Bob' }
+
+//findIndex --> finds index of first element that passes requirements --> RETURNS index
+//const index = nums.findIndex(num => num === 30);  // 2
+
+//splice --> add or removes elements to array --> RETURNS removed elements
+//nums.splice(1, 2);  // Removes 2 elements starting at index 1 => nums becomes [1, 4] 
+
+//Object.keys --> RETURNS array of keys
+//const keys = Object.keys(user);  // ['name', 'age']
+
+//Object.values --> RETURNS array of values
+//const values = Object.values(user);  // ['Alice', 25]
+
+//Object.entries --> RETURNS array of key/value pairs 
+//const entries = Object.entries(user);  // [['name', 'Alice'], ['age', 25]]
+
+//Array.concat --> merges arrays with modifying originals --> RETURNS new array
+//const combined = arr1.concat(arr2);  // [1, 2, 3, 4]
+
+//Math.max & Math.min --> finds highest or lowest number in array --> RETURNS value
+//const max = Math.max(...nums);  // 4
+
+//JSON.stringify --> object to JSON string --> RETURNS JSON string
+//const str = JSON.stringify(obj);  // '{"name":"Alice","age":25}'
+
+//JSON.parse --> JSON string to object --> RETURNS object
+//const parsed = JSON.parse(str);   // { name: 'Alice', age: 25 }
+
 
 export default function Methods() {
     return(
