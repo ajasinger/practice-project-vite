@@ -28,11 +28,27 @@ const arrObjNames = [
 //map --> creates new array by applying a function to each element --> RETURNS new array 
 //const doubled = nums.map(num => num * 2);  // [2, 4, 6, 8]
 
+const map = arrayNums.map(num => {
+    num +1
+})
+console.log('map', map)
+
 //filter --> creates new array that pass a function to each element --> RETURNS new array
 //const even = nums.filter(num => num % 2 === 0);  // [2, 4]
+const filter = arrayNums.filter(num => {
+    num % 2 === 0
+}) 
+console.log('filter', filter)
 
 //reduce --> executes reducer on each element --> RETURNS value (doesn't change array)
 //const sum = nums.reduce((acc, curr) => acc + curr, 0);  // 10
+const reduce = arrayNums.reduce((acc, curr) => {
+    acc + curr, 0
+});
+console.log('reduce', reduce)
+
+const reduceObj = arrObjNames.reduce();
+console.log('reduceObj', reduceObj)
 
 //forEach --> executes function on each element --> RETURNS undefined
 //nums.forEach(num => console.log(num));
