@@ -37,6 +37,7 @@ const arrObjNames = [
 
 //filter --> creates new array that pass a function to each element --> RETURNS new array
 //const even = nums.filter(num => num % 2 === 0);  // [2, 4]
+//filter out repeated values --> const mergedUnique = arr1.concat(arr2).filter((item, index, array) => array.indexOf(item) === index);
 
 //reduce --> executes reducer on each element --> RETURNS value (doesn't change array)
 //const sum = nums.reduce((acc, curr) => acc + curr, 0);  // 10
@@ -65,6 +66,9 @@ const arrObjNames = [
 //splice --> add or removes elements to array --> RETURNS removed elements
 //nums.splice(1, 2);  // Removes 2 elements starting at index 1 => nums becomes [1, 4] 
 
+//slice --> extract part of array os string --> RETURNS shallow copy
+//const part = arr.slice(1, 3);  // [2, 3] (from index 1 to 2, non-inclusive of 3)
+
 //Object.keys --> RETURNS array of keys
 //const keys = Object.keys(user);  // ['name', 'age']
 
@@ -86,6 +90,21 @@ const arrObjNames = [
 //JSON.parse --> JSON string to object --> RETURNS object
 //const parsed = JSON.parse(str);   // { name: 'Alice', age: 25 }
 
+//join --> array to string --> RETURNS string
+//const result = fruits.join(' - '); // Output: "apple - banana - cherry"
+//defualt separator is comma
+
+//split --> string to array --> RETURNS array
+//const limitedWords = text.split(' ', 1); console.log(limitedWords);  // Output: ["Hello,"]
+
+//indexOf --> find first element that matches in string or array --> RETURNS index or -1 if not found
+//const index = sentence.indexOf("quick"); // Output: 4
+
+//charAt --> RETURNS character at a specified index in a string
+//const character = text.charAt(4); // Output: "S"
+
+//toUpperCase & toLowerCase --> converts all the characters in a string to uppercase or lowercase
+//const upperText = text.toUpperCase(); // Output: "HELLO WORLD"
 
 export default function Methods() {
     return(
