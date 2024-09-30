@@ -15,12 +15,10 @@ export default function ImageCarousel() {
         
         try{
             const res = await(fetch('https://jsonplaceholder.typicode.com/photos'));
-            console.log('res', res);
 
             if(res.ok) {
                 const photosArray = await res.json();
                 const slicePhotos = photosArray.slice(0,5);
-                console.log('slicePhotos', slicePhotos);
                 setImagesArray(slicePhotos);
 
             } else {
