@@ -28,6 +28,45 @@ var getConcatenation = function(nums) {
     //return nums.concat(nums)
 };
 
+//155 min stack
+class MinStack {
+    constructor() {
+        this.stack = [];
+        this.minStack = [];
+    }
+};
+
+MinStack.prototype.push = function(val) {
+    this.stack.push(val)
+    //push min val to minVal
+    const minVal = this.minStack.length === 0 ? val : Math.min(val, this.minStack[this.minStack.length - 1]);
+    this.minStack.push(minVal);
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    this.stack.pop();
+    this.minStack.pop();
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    return this.stack[this.stack.length-1]
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    return this.minStack[this.minStack.length-1]
+};
+
+
+
 //20 valid parentheses
 var isValid = function(s) {
     let stack = [];
