@@ -8,14 +8,48 @@ const objName = {
     city: "Toronto"
 }
 const arrObjNames = [
-    {name: "bri", age: "49"},
-    {name: "kat", age: "26"},
-    {name: "ben", age: "78"},
-    {name: "carrie", age: "57"},
+    {name: "bri", age: 49},
+    {name: "kat", age: 26},
+    {name: "ben", age: 78},
+    {name: "carrie", age: 57},
 ]
 
 const handleClick = () => {
+    //map
+    const mapArr = arrayNums.map(num => num + 1);
+    const mapObj = arrObjNames.map(name => name.age + " years old");
+    console.log('mapArr', mapArr)
+    console.log('mapObj', mapObj)
 
+    //filter
+    const filterArr = arrayNums.filter(num => num % 20 === 0);
+    const filterObj = arrObjNames.filter(name => name.name.charAt(0) === 'b' || name.name.charAt(0) === 'k');
+    console.log('filterArr', filterArr)
+    console.log('filterObj', filterObj)
+
+    //reduce
+    const reduceArr = arrayNums.reduce((acc, element) => acc + element +100, 100);
+    const reduceObj = arrObjNames.reduce((acc, element) => acc + element.age, 0);
+    const reduceFullObj = arrObjNames.reduce((acc, person) => {
+        acc[person.name] = person.age;
+        return acc;
+    }, {});
+    console.log('reduceArr', reduceArr);
+    console.log('reduceObj', reduceObj);
+    console.log('reduceFullObj', reduceFullObj);
+
+    //forEach
+    // const forEachArr = arrayNums.forEach(num => console.log(num + 1));
+    // const forEachObj = arrObjNames.forEach(name => console.log(name.age + " years old"));
+
+    //sort
+    const sortArr = arrayNums.sort((a,b) => {
+        if(a.age === b.age) {
+            return a.name.localeCompare(b.name)
+        }
+        return a.age - b.age;
+    });
+    console.log('sortArr', sortArr);
 }
 
 //map --> creates new array by applying a function to each element --> RETURNS new array 
