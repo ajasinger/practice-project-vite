@@ -63,6 +63,12 @@ export default function CreateClass() {
         }
     }
 
+    const library = new Library();
+    const book1 = new Book('1984', 'George Orwell', '123456789');
+    library.addBook(book1);
+    library.displayBooks();
+    library.removeBook('123456789');
+
 
 
     return(
