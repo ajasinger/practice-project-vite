@@ -56,7 +56,6 @@ function App() {
   }
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     if(e.target.name === 'checkbox') {
       setFormData({
         ...formData,

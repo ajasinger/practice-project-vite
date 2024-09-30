@@ -15,9 +15,7 @@ export default function Dropdown() {
 
     //functions
     const handleClick = e => {
-        console.log('clicked', e.target.value);
         setClickedList([...clickedList, e.target.value]);
-        console.log('clickedList', clickedList);
     }
 
     return(
