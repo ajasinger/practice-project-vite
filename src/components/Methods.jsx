@@ -45,11 +45,24 @@ const handleClick = () => {
     //sort
     const sortArr = arrayNums.sort((a,b) => {
         if(a.age === b.age) {
-            return a.name.localeCompare(b.name)
+            if(a.name > b.name) return 1
+            if(a.name < b.name) return -1
         }
         return a.age - b.age;
     });
     console.log('sortArr', sortArr);
+
+    //some
+    const someArr = arrayNums.some(num => num %2 === 0)
+    const someObj = arrObjNames.some(name => name.name === "bri")
+    console.log('someArr', someArr);
+    console.log('someObj', someObj);
+
+    //every
+    const everyArr = arrayNums.every(num => num %2 === 0)
+    const everyObj = arrObjNames.every(name => name.name === "bri")
+    console.log('everyArr', everyArr);
+    console.log('everyObj', everyObj);
 }
 
 //map --> creates new array by applying a function to each element --> RETURNS new array 
