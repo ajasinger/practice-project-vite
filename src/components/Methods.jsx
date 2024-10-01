@@ -76,7 +76,7 @@ const handleClick = () => {
 //const sum = nums.reduce((acc, curr) => acc + curr, 0);  // 10
 
 //forEach --> executes function on each element --> RETURNS undefined
-//nums.forEach(num => console.log(num));
+const forEach = nums.forEach(num => console.log(num));
 
 //sort --> sorts array in place based on function --> RETURNS reference to array, now sorted
 //nums.sort((a, b) => a - b);  // [1, 1, 3, 4, 5]
