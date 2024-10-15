@@ -10,6 +10,11 @@ var removeDuplicates = function(nums) {
     return j
 };
 
+//TIME = O(n) & SPACE = O(1) 
+//TIME: iteration is length of the array O(n) 
+//SPACE: saving 2 variables 
+
+
 //leetcode 27 (remove element)
 var removeElement = function(nums, val) {
     let j = 0
@@ -22,11 +27,106 @@ var removeElement = function(nums, val) {
     return j
 };
 
+//TIME = O(n) & SPACE = O(1) 
+//TIME: iteration is length of the array O(n) 
+//SPACE: saving 2 variables 
+
+
 //1929 concatenate array 
 var getConcatenation = function(nums) {
     return ans = [...nums,...nums]
     //return nums.concat(nums)
 };
+
+//TIME & SPACE = O(n) 
+//TIME: iteration is length of the array twice O(n) 
+//SPACE: new array is created so O(n)
+
+
+//20 valid parentheses
+var isValid = function(s) {
+    let stack = [];
+    const closeToOpen = {
+        ")" : "(",
+        "}" : "{",
+        "]" : "["
+    }
+
+    for(let char of s) {
+        if(char in closeToOpen) {
+            //if key (closing bracket) check stack for a match
+            if (stack.length === 0 || stack[stack.length - 1] !== closeToOpen[char]) {
+                return false; // No match found or stack is empty
+            }
+            stack.pop(); // Remove the matching opening bracket from the stack
+        } else {
+            //if open bracket
+            stack.push(char);
+        }
+    }
+
+    return stack.length === 0;
+}
+
+var isValid2 = function(s) {
+    // Stack to store opening brackets
+    let stack = [];
+
+    // HashMap to store valid pairs of opening and closing brackets
+    let bracketMap = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    };
+
+    // Traverse the string
+    for (let char of s) {
+        if (char === '(' || char === '{' || char === '[') {
+            // Push opening brackets onto the stack
+            stack.push(char);
+        } else {
+            // If the character is a closing bracket, check for a match
+            if (stack.length === 0 || stack[stack.length - 1] !== bracketMap[char]) {
+                return false; // No match found or stack is empty
+            }
+            stack.pop(); // Remove the matching opening bracket from the stack
+        }
+    }
+
+    // If the stack is empty, all opening brackets had matching closing brackets
+    return stack.length === 0;
+};
+
+var isValid3 = function(s) {
+    const brackets = {
+        '}' : '{',
+        ')' : '(',
+        ']' : '['
+    }
+    let stack = []
+
+    for(let i=0; i < s.length; i++){
+        const char = s[i];
+
+        if(char === '{' || char === '(' || char === '[') {
+            bracketsArray.push(char);
+        } else {
+            if (stack.pop() !== brackets[char]) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0
+};
+
+//TIME & SPACE = O(n) 
+//TIME:
+//iteration is length of the string O(n) 
+//push & pop are O(1)
+//hash map lookup is O(1)
+//SPACE: max space is length/2 --> n/2 so O(n)
+
 
 //155 min stack
 class MinStack {
@@ -65,59 +165,3 @@ MinStack.prototype.getMin = function() {
     return this.minStack[this.minStack.length-1]
 };
 
-
-
-//20 valid parentheses
-var isValid = function(s) {
-    let stack = [];
-    const closeToOpen = {
-        ")" : "(",
-        "}" : "{",
-        "]" : "["
-    }
-
-    for(let char of s) {
-        if(char in closeToOpen) {
-            //if key (closing bracket) check stack for a match
-            if (stack.length === 0 || stack[stack.length - 1] !== closeToOpen[char]) {
-                return false; // No match found or stack is empty
-            }
-            stack.pop(); // Remove the matching opening bracket from the stack
-        } else {
-            //if open bracket
-            stack.push(char);
-        }
-    }
-
-    return stack.length === 0;
-}
-
-
-var isValid2 = function(s) {
-    // Stack to store opening brackets
-    let stack = [];
-
-    // HashMap to store valid pairs of opening and closing brackets
-    let bracketMap = {
-        ')': '(',
-        '}': '{',
-        ']': '['
-    };
-
-    // Traverse the string
-    for (let char of s) {
-        if (char === '(' || char === '{' || char === '[') {
-            // Push opening brackets onto the stack
-            stack.push(char);
-        } else {
-            // If the character is a closing bracket, check for a match
-            if (stack.length === 0 || stack[stack.length - 1] !== bracketMap[char]) {
-                return false; // No match found or stack is empty
-            }
-            stack.pop(); // Remove the matching opening bracket from the stack
-        }
-    }
-
-    // If the stack is empty, all opening brackets had matching closing brackets
-    return stack.length === 0;
-};
