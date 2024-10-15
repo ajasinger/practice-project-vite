@@ -143,25 +143,50 @@ MinStack.prototype.push = function(val) {
     this.minStack.push(minVal);
 };
 
-/**
- * @return {void}
- */
 MinStack.prototype.pop = function() {
-    this.stack.pop();
-    this.minStack.pop();
+    const poppedValue = this.stack.pop();
+
+    if(poppedValue === this.getMin()) {
+        this.minStack.pop();
+    }
 };
 
-/**
- * @return {number}
- */
 MinStack.prototype.top = function() {
     return this.stack[this.stack.length-1]
 };
 
-/**
- * @return {number}
- */
 MinStack.prototype.getMin = function() {
     return this.minStack[this.minStack.length-1]
+};
+
+//Solution 2 
+var MinStack2 = function() {
+    this.stack = []
+    this.minStack = []
+
+};
+
+MinStack2.prototype.push = function(val) {
+    this.stack.push(val);
+    //push current min val into minStack
+    if(this.minStack.length === 0 || val <= this.getMin()) {
+        this.minStack.push(val);
+    }
+};
+
+MinStack2.prototype.pop = function() {
+    const poppedValue = this.stack.pop();
+
+    if(poppedValue === this.getMin()) {
+        this.minStack.pop();
+    }
+};
+
+MinStack2.prototype.top = function() {
+    return this.stack[this.stack.length -1]
+};
+
+MinStack2.prototype.getMin = function() {
+    return this.minStack[this.minStack.length - 1]
 };
 
