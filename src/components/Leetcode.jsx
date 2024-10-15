@@ -1,26 +1,25 @@
 //Leetcode 26 (remove duplicates)
 var removeDuplicates = function(nums) {
     let j = 1
-    let k = 0;
     for(let i=1; i < nums.length; i++) {
         if(nums[i] !== nums[i-1]) {
             nums[j] = nums[i]
             j++
         }
     }
-    return k
+    return j
 };
 
 //leetcode 27 (remove element)
 var removeElement = function(nums, val) {
-    let k = 0
+    let j = 0
     for(let i = 0; i < nums.length; i++) {
         if(nums[i] !== val) {
-            nums[k] = nums[i];
-            k++
+            nums[j] = nums[i];
+            j++
         }
     }
-    return k
+    return j
 };
 
 //1929 concatenate array 
