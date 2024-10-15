@@ -190,3 +190,41 @@ MinStack2.prototype.getMin = function() {
     return this.minStack[this.minStack.length - 1]
 };
 
+//TIME & SPACE = O(1)
+
+//206 Reverse Linked List 
+//Iterative solution
+var reverseList = function(head) {
+    //set 2 pointers
+    let prev = null; 
+    let current = head;
+
+    while(current !== null) {
+        //store reference of next node 
+        const nextRef = current.next
+        //set next pointer of current node to previous node to reverse order 
+        //(points to null if now end tail of list)
+        current.next = prev;
+        //move prev pointer to current node 
+        prev = current;
+        //move current node to stored next node 
+        current = nextRef;
+    }
+};
+
+//Recursive solution
+var reverseList2 = function(head) {
+    //base case if list is empty or next node is null (at end of list)
+    if (head === null || head.next === null) {
+        return head;
+    }
+
+    //call function with next node in linked list creating new head each time 
+    const newHead = reverseList(head.next);
+
+    // Change the next of the current node to point to itself
+    head.next.next = head; // Set the next node's next to current node
+    head.next = null;      // Set current node's next to null
+
+    return newHead; // Return the new head of the reversed list
+};
