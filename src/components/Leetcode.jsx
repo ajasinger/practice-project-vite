@@ -1,6 +1,7 @@
 //Leetcode 26 (remove duplicates)
 var removeDuplicates = function(nums) {
-    const j = 1
+    let j = 1
+    let k = 0;
     for(let i=1; i < nums.length; i++) {
         if(nums[i] !== nums[i-1]) {
             nums[j] = nums[i]
