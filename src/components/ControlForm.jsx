@@ -2,6 +2,8 @@ import './controlForm.css'
 import { useState } from "react"
 
 //re-renders on every change to input as user is typing 
+//https://www.youtube.com/watch?v=tIdNeoHniEY&t=45s
+//https://github.com/safak/youtube/blob/react-form/src/components/FormInput.jsx
 
 export default function ControlForm() {
     const [values, setValues] = useState({
@@ -76,6 +78,9 @@ export default function ControlForm() {
                             pattern-={input.pattern}
                             onBlur={e => setFocus(true)}
                             focused={focus.toString()}
+                            onFocus={() =>
+                                inputProps.name === "confirmPassword" && setFocus(true)
+                            }
                         />
                         <div>{errorMessage}</div>
                     </div>
