@@ -1,0 +1,21 @@
+.dataContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+li{
+    display: flex;
+    gap: 6px;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    padding: 0px 12px;
+    margin: 0;
+}
+
+button:hover{
+    border: solid;
+}
