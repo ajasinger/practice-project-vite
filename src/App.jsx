@@ -1,11 +1,12 @@
 import './App.css'
 import { useState } from 'react';
-import TableDisplay from './components/tableDisplay';
-import Dropdown from './components/dropdown';
-import Accordion from './components/Accordion';
-import ImageCarousel from './components/ImageCarousel';
-import Form from './components/Form';
-import Methods from './components/Methods';
+// import TableDisplay from './components/tableDisplay';
+// import Dropdown from './components/dropdown';
+// import Accordion from './components/Accordion';
+// import ImageCarousel from './components/ImageCarousel';
+// import Form from './components/Form';
+// import Methods from './components/Methods';
+import SearchableList from './components/SearchableList';
 
 function App() {
 
@@ -71,7 +72,8 @@ function App() {
 
   return (
     <>
-    <h1>Methods</h1>
+    < SearchableList />
+    {/* <h1>Methods</h1>
     < Methods />
     <h1>FORM</h1>
     < Form />
@@ -83,7 +85,7 @@ function App() {
       <form onSubmit={handleSubmit}>
 
         {/* inputs */}
-        <div className="half-width"> 
+        {/* <div className="half-width"> 
           <div className="form-section">
             <label htmlFor="firstName">First name</label>
             <input 
@@ -117,9 +119,9 @@ function App() {
             id="email"
             autoComplete="email@email.com"
           />
-        </div>
+        </div> */}
       {/* checkbox */}
-      <div>
+      {/* <div>
           <input type="checkbox" name="checkbox" value="checkbox1" onChange={handleChange} checked={formData.checkbox.includes('checkbox2')} />
           <label htmlFor="checkbox1">checkbox1</label>
         </div>
@@ -130,15 +132,15 @@ function App() {
         <div>
           <input type="checkbox" name="checkbox" value="checkbox3" onChange={handleChange} checked={formData.checkbox.includes('checkbox2')}/>
           <label htmlFor="checkbox3">checkbox3</label>
-        </div>
+        </div> */}
       {/* select */}
-        <select onChange={handleChange} value={formData.select} name="select">
+        {/* <select onChange={handleChange} value={formData.select} name="select">
           <option value="option1">option 1</option>
           <option value="option2">option 2</option>
           <option value="option3">option 3</option>
-        </select>
+        </select> */}
       {/* radio */}
-        <div>
+        {/* <div>
           <input type="radio" name="radio" value="radio1" onChange={handleChange} checked={formData.radio === 'radio1'} />
           <label htmlFor="radio1">Radio1</label>
         </div>
@@ -165,7 +167,7 @@ function App() {
       < Dropdown />
       < Accordion />
       < TableDisplay />
-      < ImageCarousel />
+      < ImageCarousel /> */}
     </>
   )
 }
