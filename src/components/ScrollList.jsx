@@ -62,3 +62,21 @@ export const List = ({ items }) => {
     </ScrollWrapper>
   );
 };
+
+//https://dev.to/surajondev/building-an-infinite-scroll-component-in-react-1ljb
+// window.addEventListener("scroll", handleScroll);
+
+//When scrolling check if current position of scoll bar is just above the bottom of the web page
+//(ie total vertical scrollable area). If yes change loading state to true.
+//const handleScroll = () => {
+//   if (document.body.scrollHeight - 300 < window.scrollY + window.innerHeight) {
+//     setLoading(true);
+//   }
+// };
+
+// scrollHeight : It is the property that returns the total height of the content, 
+//including the portion that is not visible on the screen. So, it will be the total scrollable area.
+// scrollY: It is the property that returns the number of pixels that the document has 
+//been scrolled vertically from the top. So it will be the area that has been scrolled.
+// innerHeight: It is the property that return the height of the browser’s Windows content area. 
+//It will be the scrollbar width. It is added to scrollY so that fetch happens when we reached the content rather than when we passed the content.
