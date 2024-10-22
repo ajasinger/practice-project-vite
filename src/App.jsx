@@ -6,7 +6,8 @@ import { useState } from 'react';
 // import ImageCarousel from './components/ImageCarousel';
 // import Form from './components/Form';
 // import Methods from './components/Methods';
-import SearchableList from './components/SearchableList';
+//import SearchableList from './components/SearchableList';
+import PaginatedData from './components/PaginatedData';
 
 function App() {
 
@@ -72,7 +73,8 @@ function App() {
 
   return (
     <>
-    < SearchableList />
+    < PaginatedData />
+    {/* < SearchableList /> */}
     {/* <h1>Methods</h1>
     < Methods />
     <h1>FORM</h1>
