@@ -17,6 +17,8 @@ export default function PaginatedData() {
     const [displayData, setDisplayData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchName, setSearchName] = useState('');
+    const [searchDropdownOpen, setSearchDropdownOpen] = useState(false);
+    const [nameList, setNameList] = useState([])
 
     const itemsPerPage = 3
 
@@ -35,8 +37,20 @@ export default function PaginatedData() {
         setDisplayData(slicedData);
     }
 
-    const handleDelete = id => {
-        const updatedData = displayData.filter(person => person.id !== id);
+    const handleInputChange = e => {
+        setSearchName(e.target.value);
+        setSearchDropdownOpen(true);
+        const filterNames = data.filter(person => person.name.toLowerCase().startsWith(e.target.value.toLowerCase()))
+        setNameList(filterNames)
+    }
+
+    const handleSelectName = name => {
+        setSearchName(name)
+        setSearchDropdownOpen(false);
+    }
+
+    const handleDelete = name => {
+        const updatedData = displayData.filter(person => person.name !== name);
         setDisplayData(updatedData);
     }
 
@@ -60,7 +74,27 @@ export default function PaginatedData() {
     return(
         <div className={styles.dataContainer}>
             {/* search input with dropdown*/}
+            <input
+                type="text"
+                placeholder="enter a name"
+                value={searchName}
+                onChange={handleInputChange}
+                id="name"
+            />
+            {searchDropdownOpen && nameList.length > 0 && 
+                <ul>
+                    {nameList.map(person => (
+                        <li 
+                            key={`${person.name}-li`}
+                            onClick={() => handleSelectName(person.name)}
+                        >
+                            {person.name}
+                        </li>
+                    ))}
+                </ul>
+            }
             {/* second dropdown based on first */}
+            
             <ul>
                 {displayData.length > 0 && displayData.map(person => (
                     <li key={person.name}>
