@@ -1,0 +1,25 @@
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inputContainer{
+    display: flex;
+    gap: 12px;
+}
+
+.listContainer{
+    padding-top: 24px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    padding: 0;
+    display: flex;
+    gap: 12px;
+}
