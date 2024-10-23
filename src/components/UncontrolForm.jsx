@@ -3,31 +3,30 @@ import { useRef } from "react";
 //doesn't re-render on changes, only on submit
 
 export default function UncontrolForm() {
-    const usernameRef = useRef();
-    const emailRef = useRef()
+    const usernameRef = useRef(null);
+    const emailRef = useRef(null);
 
-    const handleSubmit = e => {
-        //so it doesn't refresh page 
+    const handleSubmit = (e) => {
         e.preventDefault();
+        // Access the values using the refs
+        const username = usernameRef.current.value;
+        const email = emailRef.current.value;
+        
+        console.log('Username:', username);
+        console.log('Email:', email);
+    };
 
-        console.log('submitted')
-    }
-
-    return(
+    return (
+        <form onSubmit={handleSubmit}>
         <div>
-            <form onSubmit={handleSubmit}>
-                <label>Username</label>
-                <input 
-                    placeholder="username"
-                    ref={usernameRef}
-                />
-                <label>Email</label>
-                <input 
-                    placeholder="email"
-                    ref={emailRef}
-                />
-            </form>
-            <button type="submit">Submit</button>
+            <label>Username:</label>
+            <input type="text" ref={usernameRef} />
         </div>
-    )
-}
+        <div>
+            <label>Email:</label>
+            <input type="email" ref={emailRef} />
+        </div>
+        <button type="submit">Submit</button>
+        </form>
+    );
+};
