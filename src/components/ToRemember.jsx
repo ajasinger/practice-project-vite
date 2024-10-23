@@ -307,6 +307,70 @@ const [todos, setTodos] = useState(() => {
         }
       }
 
+      //FORM VALIDATION
+      const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      };
+    
+      const validatePassword = (password) => {
+        // Simple password validation (at least 6 characters)
+        return password.length >= 6;
+      };
+
+      //UNCONTROL FORM 
+      const usernameRef = useRef(null);
+    const emailRef = useRef(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Access the values using the refs
+        const username = usernameRef.current.value;
+        const email = emailRef.current.value;
+        
+        console.log('Username:', username);
+        console.log('Email:', email);
+    };
+
+    <form onSubmit={handleSubmit}>
+        <div>
+            <label>Username:</label>
+            <input type="text" ref={usernameRef} />
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" ref={emailRef} />
+        </div>
+        <button type="submit">Submit</button>
+        </form>
+
+    //FORMDATA()
+
+    const handleSubmit3 = (e) => {
+        e.preventDefault();
+        // Create a new FormData object
+        const formData = new FormData(e.target);
+        
+        // Access the values using FormData
+        const username = formData.get('username');
+        const email = formData.get('email');
+        
+        console.log('Username:', username);
+        console.log('Email:', email);
+    };
+
+    <form onSubmit={handleSubmit3}>
+          <div>
+            <label>Username:</label>
+            <input type="text" name="username" />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input type="email" name="email" />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+
     return(
         <div>
             {/* INPUT */}
