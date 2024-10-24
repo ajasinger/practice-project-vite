@@ -1,5 +1,20 @@
 export default function ToRemember() {
 
+     //filter
+    //reduce
+
+    //split
+    //join
+    //substring
+    //trim
+    //includes
+
+    //obejct.keys, values, entries
+
+    //Conditional Statements: if, else, switch.
+    //Loops: for, while, and for...of loops.
+    
+    
     //PAGINATION 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 3
@@ -27,6 +42,24 @@ export default function ToRemember() {
         setDisplayData(slicedData);
     }
 
+    // const handlePageChange = (direction) => {
+    //     setCurrentPage((prevPage) => {
+    //         let newPage = prevPage;
+            
+    //         if (direction === "prev" && prevPage > 1) {
+    //             newPage = prevPage - 1;
+    //         } else if (direction === "next" && prevPage < pages) {
+    //             newPage = prevPage + 1;
+    //         }
+    
+    //         const startData = (newPage - 1) * itemsPerPage;
+    //         const endData = startData + itemsPerPage;
+    //         setCurrentPageData(data.slice(startData, endData));
+    
+    //         return newPage; // Return the updated page
+    //     });
+    // };
+
     //SELECTABLE PAGES 
     const [currentPage2, setCurrentPage2] = useState(1);
     const [pages, setPages] = useState([]);
@@ -52,6 +85,9 @@ export default function ToRemember() {
                     const slicedTodos = todos.slice(sliceStart, sliceEnd);
                     setTodoPage(slicedTodos);
                 }
+
+        //ARRAY FOR # BUTTONS 
+        const pageNumbers = Array.from({ length: pages }, (_, i) => i + 1);
 
                 {/* pagination */}
         {pages && pages.map((page, i) => (
