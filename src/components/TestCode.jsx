@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export default function TestCode() {
         const [formData, setFormData] = useState([]);
@@ -50,17 +50,28 @@ export default function TestCode() {
 
 
         //UNCONTROL FORM 
-        
-        
         //FORMDATA()
 
-    
         //INFINITE SCROLL
         //scroll vertical container 
         
         //CAROUSEL SCROLL
         //scroll horizontal container 
+        
+        //UPDATE ARRAY
+        //setTodos by unchecking one item and sorting based on checked or not
 
+        //setState() to array with new array
+
+        //handleClick() for ascending or descending
+
+        //LOCAL STORAGE
+        
+        //SEARCH BAR 
+        //filterList() from input value
+
+        //PAGINATION WITH 2 BUTTONS
+        //states, set original data, handlePrev(), handleNext()
 
     }
         
@@ -203,6 +214,50 @@ export default function TestCode() {
             const endIndex = startIndex = itemsPerPage
             const newPageData = data.slice(startIndex, endIndex)
         }
+
+
+         //INFINITE SCROLL
+        //scroll vertical container 
+        const [data, setData] = useState(null)
+        const [visibleData, setVisibleData] = useState([])
+        const [scrollTop, setScrollTop] = useState(0)
+        const scrollRef = useRef(null)
+        const itemHeight = 30
+        const viewHeight = 500
+
+        const handleScroll = () => {
+            if(scrollRef.current) {
+                setScrollTop(scrollRef.current.scrollTop)
+            }
+        }
+
+        useEffect(() => {
+            const totalItems = items.length;
+            const startIndex = Math.floor(scrollTop/itemHeight)
+            const endIndex = Math.ceil(startIndex)
+            setVisibleData(items.slice(startIndex, endIndex))
+
+        }, [scrollTop])
+        
+        //<div ref={scrollRef} onScroll={handleScroll}></div>
+        
+        //CAROUSEL SCROLL
+        //scroll horizontal container 
+        const carouselRef = useRef(null);
+
+        const handleScroll2 = (direction) => {
+            const container= ref.current;
+            const scrollAmount = 300
+
+            if(direction === 'left') container.scrollBy({left: -scrollAmount, behavior: 'smooth'})
+            if(direction === 'right') container.scrollBy({left: scrollAmount, behavior: 'smooth'})
+        }
+
+        // <button onClick={() => handleScroll('left')}>&#8592;</button>
+        // <button onClick={() => handleScroll('right')}>&#8594;</button>
+        // <div ref={ref}>
+        //     {images}
+        // </div>
    
 
 
