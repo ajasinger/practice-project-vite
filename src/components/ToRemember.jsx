@@ -319,6 +319,10 @@ const [todos, setTodos] = useState(() => {
         }
       };
 
+    //   const handleKeyDown = e => {
+    //     if(e.key === "Enter" && !colorsArray.includes(e.target.value)) setColorsArray(prevData => [...prevData, e.target.value])
+    // }
+
     //FORM WITH STATE OBJECT 
     const [formData, setFormData] = useState({
         firstName: '',
