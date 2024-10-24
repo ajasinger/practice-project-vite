@@ -8,6 +8,7 @@ import { useState } from 'react';
 // import Methods from './components/Methods';
 //import SearchableList from './components/SearchableList';
 import PaginatedData from './components/PaginatedData';
+import TestCode from './components/TestCode';
 
 function App() {
 
@@ -73,7 +74,8 @@ function App() {
 
   return (
     <>
-    < PaginatedData />
+    {/* < PaginatedData /> */}
+    < TestCode />
     {/* < SearchableList /> */}
     {/* <h1>Methods</h1>
     < Methods />
