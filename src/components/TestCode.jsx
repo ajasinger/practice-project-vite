@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 export default function TestCode() {
         const [formData, setFormData] = useState([]);
         const [todos, setTodos] = useState([])
+        const [nameInput, setNameInput] = useState('')
 
     const handleClick = () => {
         const testArray = [1, 5, 3, 2]
@@ -47,27 +48,18 @@ export default function TestCode() {
         const sortTitle = testObj.sort((a,b) => a.title.localeCompare(b.title))
         //console.log('sortTitle', sortTitle);
 
-        //CREATE TAGS WITH INPUT
-    //add tag that is not duplicate on "enter"
-    //remove tag
-    //add suggestions list 
 
-    //FORM WITH STATE OBJECT 
-    //handleChange()
-    // const [formData, setFormData] = useState({
-    //     firstName: '',
-    //     lastName: '',
-    //     email: '', 
-    //     select: '',
-    //     radio: '',
-    //     checkbox: []
-    // })
+        //UNCONTROL FORM 
+        
+        
+        //FORMDATA()
 
-    //FORM VALIDATION
-    //validateEmail(), validatePassword()
-      
-
-    //FORMDATA()
+    
+        //INFINITE SCROLL
+        //scroll vertical container 
+        
+        //CAROUSEL SCROLL
+        //scroll horizontal container 
 
 
     }
@@ -211,21 +203,29 @@ export default function TestCode() {
             const endIndex = startIndex = itemsPerPage
             const newPageData = data.slice(startIndex, endIndex)
         }
-
-    
-    
-        //INFINITE SCROLL
-    //scroll vertical container 
-    
-    //CAROUSEL SCROLL
-    //scroll horizontal container 
    
 
 
         return(
             <div>
                 {/* INPUT */}
+                <label htmlFor="name">Name</label>
+                <input 
+                    name="name"
+                    value={nameInput}
+                    onChange={e => setNameInput(e.target.value)}
+                    focus={focused}
+                    required
+                    aria-label="enter your name here"
+                    placeholder="jane doe"
+                />
                 {/* MAPPED LIST WITH ONCLICK */}
+                <ul>
+                    {data.length > 0 && data.map(person => (
+                        <li key={person.id} onClick={() => handleChange(person.id)}>{person.name}</li>
+                    ))}
+
+                </ul>
                 <button onClick={handleClick}>CLICK ME</button>
             </div>
         )
