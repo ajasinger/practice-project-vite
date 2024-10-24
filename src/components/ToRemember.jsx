@@ -14,7 +14,15 @@ export default function ToRemember() {
     //Conditional Statements: if, else, switch.
     //Loops: for, while, and for...of loops.
     
-    
+    //count words in a textarea. Display the count as the user types and provide feedback when they exceed a certain limit.
+    const handleWordChange = e => {
+        const paragraph = e.target.value;
+        //get array of words 
+        const words = paragraph.trim().split(/\s+/).filter(word => word.length> 0)
+        const wordLength = words.length
+    }
+
+
     //PAGINATION 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 3
