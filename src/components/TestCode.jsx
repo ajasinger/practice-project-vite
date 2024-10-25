@@ -52,26 +52,57 @@ export default function TestCode() {
         //UNCONTROL FORM 
         //FORMDATA()
 
+        //setState() to array with new array
+        setData(prevData => [...prevData, e.target.value])
+        setData(prevData => [...prevData, ...newArray])
+
+        const pagesArray = Array.from({length: data.length}, (_, i) => i+1)
+
+        //handleClick() for ascending or descending
+        const handleClick = e => {
+            if(e.target.name === 'ascending') {
+                const sortedArray = [...dataArray].sort((a, b) => a-b)
+                setDataArray(sortedArray)
+            }
+        }
+
+        //LOCAL STORAGE
+        const [data, setData] = useState(() => {
+            const localData = localStorage.getItem("list")
+            return localData ? JSON.parse(localData) : initialData
+        })
+
+        useEffect(() => {
+            localStorage.setItem("list", JSON.stringify(data))
+        }, [data])
+
+
+        //SEARCH BAR 
+        //filterList() from input value
+        const filterList = input => {
+            const finalInput = input.trim().toLowerCase();
+            list.filter(color => color.toLowerCase() !== finalInput)
+        }
+
+        const filteredList = users.filter(user => 
+            user.name.toLowerCase().startsWith(lowerCaseInput)
+        );
+
+        //DROPDOWN
+        
+
+        //UPDATE ARRAY
+        //setTodos by unchecking one item and sorting based on checked or not
+
+        //PAGINATION WITH 2 BUTTONS
+        //states, set original data, handlePrev(), handleNext()
+
         //INFINITE SCROLL
         //scroll vertical container 
         
         //CAROUSEL SCROLL
         //scroll horizontal container 
-        
-        //UPDATE ARRAY
-        //setTodos by unchecking one item and sorting based on checked or not
-
-        //setState() to array with new array
-
-        //handleClick() for ascending or descending
-
-        //LOCAL STORAGE
-        
-        //SEARCH BAR 
-        //filterList() from input value
-
-        //PAGINATION WITH 2 BUTTONS
-        //states, set original data, handlePrev(), handleNext()
+    
 
     }
         
