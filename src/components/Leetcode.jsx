@@ -1,230 +1,230 @@
 //Leetcode 26 (remove duplicates)
-// var removeDuplicates = function(nums) {
-//     let j = 1
-//     for(let i=1; i < nums.length; i++) {
-//         if(nums[i] !== nums[i-1]) {
-//             nums[j] = nums[i]
-//             j++
-//         }
-//     }
-//     return j
-// };
+var removeDuplicates = function(nums) {
+    let j = 1
+    for(let i=1; i < nums.length; i++) {
+        if(nums[i] !== nums[i-1]) {
+            nums[j] = nums[i]
+            j++
+        }
+    }
+    return j
+};
 
-// //TIME = O(n) & SPACE = O(1) 
-// //TIME: iteration is length of the array O(n) 
-// //SPACE: saving 2 variables 
-
-
-// //leetcode 27 (remove element)
-// var removeElement = function(nums, val) {
-//     let j = 0
-//     for(let i = 0; i < nums.length; i++) {
-//         if(nums[i] !== val) {
-//             nums[j] = nums[i];
-//             j++
-//         }
-//     }
-//     return j
-// };
-
-// //TIME = O(n) & SPACE = O(1) 
-// //TIME: iteration is length of the array O(n) 
-// //SPACE: saving 2 variables 
+//TIME = O(n) & SPACE = O(1) 
+//TIME: iteration is length of the array O(n) 
+//SPACE: saving 2 variables 
 
 
-// //1929 concatenate array 
-// var getConcatenation = function(nums) {
-//     return ans = [...nums,...nums]
-//     //return nums.concat(nums)
-// };
+//leetcode 27 (remove element)
+var removeElement = function(nums, val) {
+    let j = 0
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] !== val) {
+            nums[j] = nums[i];
+            j++
+        }
+    }
+    return j
+};
 
-// //TIME & SPACE = O(n) 
-// //TIME: iteration is length of the array twice O(n) 
-// //SPACE: new array is created so O(n)
-
-
-// //20 valid parentheses
-// var isValid = function(s) {
-//     let stack = [];
-//     const closeToOpen = {
-//         ")" : "(",
-//         "}" : "{",
-//         "]" : "["
-//     }
-
-//     for(let char of s) {
-//         if(char in closeToOpen) {
-//             //if key (closing bracket) check stack for a match
-//             if (stack.length === 0 || stack[stack.length - 1] !== closeToOpen[char]) {
-//                 return false; // No match found or stack is empty
-//             }
-//             stack.pop(); // Remove the matching opening bracket from the stack
-//         } else {
-//             //if open bracket
-//             stack.push(char);
-//         }
-//     }
-
-//     return stack.length === 0;
-// }
-
-// var isValid2 = function(s) {
-//     // Stack to store opening brackets
-//     let stack = [];
-
-//     // HashMap to store valid pairs of opening and closing brackets
-//     let bracketMap = {
-//         ')': '(',
-//         '}': '{',
-//         ']': '['
-//     };
-
-//     // Traverse the string
-//     for (let char of s) {
-//         if (char === '(' || char === '{' || char === '[') {
-//             // Push opening brackets onto the stack
-//             stack.push(char);
-//         } else {
-//             // If the character is a closing bracket, check for a match
-//             if (stack.length === 0 || stack[stack.length - 1] !== bracketMap[char]) {
-//                 return false; // No match found or stack is empty
-//             }
-//             stack.pop(); // Remove the matching opening bracket from the stack
-//         }
-//     }
-
-//     // If the stack is empty, all opening brackets had matching closing brackets
-//     return stack.length === 0;
-// };
-
-// var isValid3 = function(s) {
-//     const brackets = {
-//         '}' : '{',
-//         ')' : '(',
-//         ']' : '['
-//     }
-//     let stack = []
-
-//     for(let i=0; i < s.length; i++){
-//         const char = s[i];
-
-//         if(char === '{' || char === '(' || char === '[') {
-//             bracketsArray.push(char);
-//         } else {
-//             if (stack.pop() !== brackets[char]) {
-//                 return false;
-//             }
-//         }
-//     }
-
-//     return stack.length === 0
-// };
-
-// //TIME & SPACE = O(n) 
-// //TIME:
-// //iteration is length of the string O(n) 
-// //push & pop are O(1)
-// //hash map lookup is O(1)
-// //SPACE: max space is length/2 --> n/2 so O(n)
+//TIME = O(n) & SPACE = O(1) 
+//TIME: iteration is length of the array O(n) 
+//SPACE: saving 2 variables 
 
 
-// //155 min stack
-// class MinStack {
-//     constructor() {
-//         this.stack = [];
-//         this.minStack = [];
-//     }
-// };
+//1929 concatenate array 
+var getConcatenation = function(nums) {
+    return ans = [...nums,...nums]
+    //return nums.concat(nums)
+};
 
-// MinStack.prototype.push = function(val) {
-//     this.stack.push(val)
-//     //push min val to minVal
-//     const minVal = this.minStack.length === 0 ? val : Math.min(val, this.minStack[this.minStack.length - 1]);
-//     this.minStack.push(minVal);
-// };
+//TIME & SPACE = O(n) 
+//TIME: iteration is length of the array twice O(n) 
+//SPACE: new array is created so O(n)
 
-// MinStack.prototype.pop = function() {
-//     const poppedValue = this.stack.pop();
 
-//     if(poppedValue === this.getMin()) {
-//         this.minStack.pop();
-//     }
-// };
+//20 valid parentheses
+var isValid = function(s) {
+    let stack = [];
+    const closeToOpen = {
+        ")" : "(",
+        "}" : "{",
+        "]" : "["
+    }
 
-// MinStack.prototype.top = function() {
-//     return this.stack[this.stack.length-1]
-// };
+    for(let char of s) {
+        if(char in closeToOpen) {
+            //if key (closing bracket) check stack for a match
+            if (stack.length === 0 || stack[stack.length - 1] !== closeToOpen[char]) {
+                return false; // No match found or stack is empty
+            }
+            stack.pop(); // Remove the matching opening bracket from the stack
+        } else {
+            //if open bracket
+            stack.push(char);
+        }
+    }
 
-// MinStack.prototype.getMin = function() {
-//     return this.minStack[this.minStack.length-1]
-// };
+    return stack.length === 0;
+}
 
-// //Solution 2 
-// var MinStack2 = function() {
-//     this.stack = []
-//     this.minStack = []
+var isValid2 = function(s) {
+    // Stack to store opening brackets
+    let stack = [];
 
-// };
+    // HashMap to store valid pairs of opening and closing brackets
+    let bracketMap = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    };
 
-// MinStack2.prototype.push = function(val) {
-//     this.stack.push(val);
-//     //push current min val into minStack
-//     if(this.minStack.length === 0 || val <= this.getMin()) {
-//         this.minStack.push(val);
-//     }
-// };
+    // Traverse the string
+    for (let char of s) {
+        if (char === '(' || char === '{' || char === '[') {
+            // Push opening brackets onto the stack
+            stack.push(char);
+        } else {
+            // If the character is a closing bracket, check for a match
+            if (stack.length === 0 || stack[stack.length - 1] !== bracketMap[char]) {
+                return false; // No match found or stack is empty
+            }
+            stack.pop(); // Remove the matching opening bracket from the stack
+        }
+    }
 
-// MinStack2.prototype.pop = function() {
-//     const poppedValue = this.stack.pop();
+    // If the stack is empty, all opening brackets had matching closing brackets
+    return stack.length === 0;
+};
 
-//     if(poppedValue === this.getMin()) {
-//         this.minStack.pop();
-//     }
-// };
+var isValid3 = function(s) {
+    const brackets = {
+        '}' : '{',
+        ')' : '(',
+        ']' : '['
+    }
+    let stack = []
 
-// MinStack2.prototype.top = function() {
-//     return this.stack[this.stack.length -1]
-// };
+    for(let i=0; i < s.length; i++){
+        const char = s[i];
 
-// MinStack2.prototype.getMin = function() {
-//     return this.minStack[this.minStack.length - 1]
-// };
+        if(char === '{' || char === '(' || char === '[') {
+            bracketsArray.push(char);
+        } else {
+            if (stack.pop() !== brackets[char]) {
+                return false;
+            }
+        }
+    }
 
-// //TIME & SPACE = O(1)
+    return stack.length === 0
+};
 
-// //206 Reverse Linked List 
-// //Iterative solution
-// var reverseList = function(head) {
-//     //set 2 pointers
-//     let prev = null; 
-//     let current = head;
+//TIME & SPACE = O(n) 
+//TIME:
+//iteration is length of the string O(n) 
+//push & pop are O(1)
+//hash map lookup is O(1)
+//SPACE: max space is length/2 --> n/2 so O(n)
 
-//     while(current !== null) {
-//         //store reference of next node 
-//         const nextRef = current.next
-//         //set next pointer of current node to previous node to reverse order 
-//         //(points to null if now end tail of list)
-//         current.next = prev;
-//         //move prev pointer to current node 
-//         prev = current;
-//         //move current node to stored next node 
-//         current = nextRef;
-//     }
-// };
 
-// //Recursive solution
-// var reverseList2 = function(head) {
-//     //base case if list is empty or next node is null (at end of list)
-//     if (head === null || head.next === null) {
-//         return head;
-//     }
+//155 min stack
+class MinStack {
+    constructor() {
+        this.stack = [];
+        this.minStack = [];
+    }
+};
 
-//     //call function with next node in linked list creating new head each time 
-//     const newHead = reverseList(head.next);
+MinStack.prototype.push = function(val) {
+    this.stack.push(val)
+    //push min val to minVal
+    const minVal = this.minStack.length === 0 ? val : Math.min(val, this.minStack[this.minStack.length - 1]);
+    this.minStack.push(minVal);
+};
 
-//     // Change the next of the current node to point to itself
-//     head.next.next = head; // Set the next node's next to current node
-//     head.next = null;      // Set current node's next to null
+MinStack.prototype.pop = function() {
+    const poppedValue = this.stack.pop();
 
-//     return newHead; // Return the new head of the reversed list
-// };
+    if(poppedValue === this.getMin()) {
+        this.minStack.pop();
+    }
+};
+
+MinStack.prototype.top = function() {
+    return this.stack[this.stack.length-1]
+};
+
+MinStack.prototype.getMin = function() {
+    return this.minStack[this.minStack.length-1]
+};
+
+//Solution 2 
+var MinStack2 = function() {
+    this.stack = []
+    this.minStack = []
+
+};
+
+MinStack2.prototype.push = function(val) {
+    this.stack.push(val);
+    //push current min val into minStack
+    if(this.minStack.length === 0 || val <= this.getMin()) {
+        this.minStack.push(val);
+    }
+};
+
+MinStack2.prototype.pop = function() {
+    const poppedValue = this.stack.pop();
+
+    if(poppedValue === this.getMin()) {
+        this.minStack.pop();
+    }
+};
+
+MinStack2.prototype.top = function() {
+    return this.stack[this.stack.length -1]
+};
+
+MinStack2.prototype.getMin = function() {
+    return this.minStack[this.minStack.length - 1]
+};
+
+//TIME & SPACE = O(1)
+
+//206 Reverse Linked List 
+//Iterative solution
+var reverseList = function(head) {
+    //set 2 pointers
+    let prev = null; 
+    let current = head;
+
+    while(current !== null) {
+        //store reference of next node 
+        const nextRef = current.next
+        //set next pointer of current node to previous node to reverse order 
+        //(points to null if now end tail of list)
+        current.next = prev;
+        //move prev pointer to current node 
+        prev = current;
+        //move current node to stored next node 
+        current = nextRef;
+    }
+};
+
+//Recursive solution
+var reverseList2 = function(head) {
+    //base case if list is empty or next node is null (at end of list)
+    if (head === null || head.next === null) {
+        return head;
+    }
+
+    //call function with next node in linked list creating new head each time 
+    const newHead = reverseList(head.next);
+
+    // Change the next of the current node to point to itself
+    head.next.next = head; // Set the next node's next to current node
+    head.next = null;      // Set current node's next to null
+
+    return newHead; // Return the new head of the reversed list
+};
