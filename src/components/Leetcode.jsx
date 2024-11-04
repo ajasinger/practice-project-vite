@@ -220,7 +220,7 @@ var reverseList2 = function(head) {
     }
 
     //call function with next node in linked list creating new head each time 
-    const newHead = reverseList(head.next);
+    const newHead = reverseList2(head.next);
 
     // Change the next of the current node to point to itself
     head.next.next = head; // Set the next node's next to current node
