@@ -201,14 +201,14 @@ var reverseList = function(head) {
 
     while(current !== null) {
         //store reference of next node 
-        const nextRef = current.next
+        const nextNode = current.next
         //set next pointer of current node to previous node to reverse order 
         //(points to null if now end tail of list)
         current.next = prev;
         //move prev pointer to current node 
         prev = current;
         //move current node to stored next node 
-        current = nextRef;
+        current = nextNode;
     }
 };
 
