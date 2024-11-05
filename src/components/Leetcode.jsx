@@ -199,7 +199,7 @@ var reverseList = function(head) {
     let prev = null; 
     let current = this.head;
 
-    while(current) {
+    while(current !== null) {
         //store reference of next node 
         const nextNode = current.next
         //set next pointer of current node to previous node to reverse order 
@@ -213,7 +213,11 @@ var reverseList = function(head) {
 
     //set new head 
     this.head = prev;
+    //return prev;
 };
+
+//O(n) time because we touch n nodes 
+//O(1) space becasue not creating space that scales as input does, keep constant variables
 
 //Recursive solution
 var reverseList2 = function(head) {
@@ -236,4 +240,4 @@ var reverseList2 = function(head) {
 };
 
 //O(n) time because we touch n nodes 
-//O(1) space becasue not creting space that scales as input does, keep constant variables
+//O(n) 
