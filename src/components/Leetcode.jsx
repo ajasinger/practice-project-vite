@@ -197,9 +197,9 @@ MinStack2.prototype.getMin = function() {
 var reverseList = function(head) {
     //set 2 pointers
     let prev = null; 
-    let current = head;
+    let current = this.head;
 
-    while(current !== null) {
+    while(current) {
         //store reference of next node 
         const nextNode = current.next
         //set next pointer of current node to previous node to reverse order 
@@ -210,6 +210,9 @@ var reverseList = function(head) {
         //move current node to stored next node 
         current = nextNode;
     }
+
+    //set new head 
+    this.head = prev;
 };
 
 //Recursive solution
@@ -219,12 +222,18 @@ var reverseList2 = function(head) {
         return head;
     }
 
-    //call function with next node in linked list creating new head each time 
+    //Recursive call: reverse the rest of the list starting from head.next
     const newHead = reverseList2(head.next);
 
-    // Change the next of the current node to point to itself
-    head.next.next = head; // Set the next node's next to current node
-    head.next = null;      // Set current node's next to null
+    // Connect the next node back to the current head
+    head.next.next = head; 
 
-    return newHead; // Return the new head of the reversed list
+    // Set head.next to null to prevent a cycle
+    head.next = null;
+
+    // Return the new head of the reversed list
+    return newHead;
 };
+
+//O(n) time because we touch n nodes 
+//O(1) space becasue not creting space that scales as input does, keep constant variables
